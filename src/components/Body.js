@@ -19,7 +19,7 @@ const Body = () => {
                     // <RestaurantCard restaurant={Restaurants[4]}/>
 
                     Restaurants.map((r,index)=>{
-                      return  <RestaurantCard restaurant={r} key={index}/>
+                      return  <RestaurantCard {...r.data} key={index}/>
                     })
                 }
 

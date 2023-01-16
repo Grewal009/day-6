@@ -1,8 +1,8 @@
 import {IMG_CDN} from '../constants'
 import { RESTAURANT_API } from '../constants';
 
-    const RestaurantCard = ({restaurant}) => {
-        const {cloudinaryImageId, name, cuisines, avgRating} = restaurant.data;
+    const RestaurantCard = ({cloudinaryImageId, name, cuisines, avgRating}) => {
+       
         return(
             <div className="card">
                 <img src={IMG_CDN + cloudinaryImageId}/>
