@@ -1,0 +1,70 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.header{
+    border: black solid 1px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 100px;
+    height:100px;
+}
+
+a{
+    width: 100px;
+    height: 100px;
+}
+
+.header > ul{
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+
+}
+
+.header > ul > li{
+    margin: 10px;
+    padding: 10px;
+    list-style: none;
+}
+
+.btn-login-logout{
+    width: 100px;
+    margin: 30px 10px;
+}
+
+.card{
+    margin: 10px;
+    padding: 10px;
+    border: green solid 1px;
+}
+
+.body{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card{
+    width: 200px;
+}
+.card > img {
+    width: 100%;
+}
+
+.search-input-btn{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.search-input-btn > input{
+    font-size: 15px;
+}
+
+.search-input-btn > button{
+    font-size: 15px;
+    width: 80px;
+}
