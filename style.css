@@ -40,6 +40,7 @@ a{
 .card{
     margin: 10px;
     padding: 10px;
+    width: 200px;
     border: green solid 1px;
 }
 
@@ -48,9 +49,6 @@ a{
     flex-wrap: wrap;
 }
 
-.card{
-    width: 200px;
-}
 .card > img {
     width: 100%;
 }
@@ -68,4 +66,28 @@ a{
 .search-input-btn > button{
     font-size: 15px;
     width: 80px;
+}
+
+.shimmer{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.shimmer-card{
+width: 200px;
+height: 270px;
+margin: 10px;
+padding: 10px;
+width: 200px;
+background:rgb(248, 247, 247);
+border: rgb(185, 184, 184) solid 1px;
+
+}
+
+.shimmer-img{
+    width:200px;
+    height:126px;
+    background-color:rgb(131, 128, 128);
+
 }

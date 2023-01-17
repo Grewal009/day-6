@@ -1,6 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import { Restaurants } from "../constants";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Shimmer from "./Shimmer";
 
 function filterData(searchText, allRestaurants){
     return  allRestaurants.filter(
@@ -12,10 +13,25 @@ function filterData(searchText, allRestaurants){
 const Body = () => {
 
     const [searchText, setSearchText] = useState("");
-    const [allRestaurants, setAllRestaurants] = useState(Restaurants);
-    const [fliteredRestaurant, setFliteredRestaurant] = useState(Restaurants);
+    const [allRestaurants, setAllRestaurants] = useState([]);
+    const [fliteredRestaurant, setFliteredRestaurant] = useState([]);
 
-    return (
+    useEffect(()=>{
+        getRestaurants();
+    },[]);
+
+    async function getRestaurants(){
+        const list = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.7333148&lng=76.7794179&page_type=DESKTOP_WEB_LISTING");
+        const newList = await list.json();
+        console.log(newList);
+        setAllRestaurants(newList?.data?.cards[2]?.data?.data?.cards);
+        console.log(allRestaurants);
+        setFliteredRestaurant(newList?.data?.cards[2]?.data?.data?.cards);
+    }
+
+    return allRestaurants.length === 0 
+            ? <Shimmer />
+            : (
         <>
             <div className="search-input-btn">
                 <input type="text" placeholder="Search" value={searchText} onChange={(e)=>setSearchText(e.target.value)} />
@@ -36,8 +52,9 @@ const Body = () => {
                     // <RestaurantCard restaurant={Restaurants[2]}/>
                     // <RestaurantCard restaurant={Restaurants[3]}/>
                     // <RestaurantCard restaurant={Restaurants[4]}/>
-
-                    fliteredRestaurant.map((r,index)=>{
+                    (fliteredRestaurant.length === 0) 
+                    ?<h2>No result found!!!</h2>
+                    :fliteredRestaurant.map((r,index)=>{
                       return  <RestaurantCard {...r.data} key={r.data.id}/>
                     })
                 }
