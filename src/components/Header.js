@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Title = () => {
     return(
-        <a href="/"><img className="logo" alt="logo image" src="https://yt3.googleusercontent.com/ytc/AMLnZu_EC-ECXAxRAixWGEfMsE1rdSoetBHyxmLNdtCB=s900-c-k-c0x00ffffff-no-rj"/></a>
+        <a className="logo-a" href="/"><img className="logo" alt="logo image" src="https://yt3.googleusercontent.com/ytc/AMLnZu_EC-ECXAxRAixWGEfMsE1rdSoetBHyxmLNdtCB=s900-c-k-c0x00ffffff-no-rj"/></a>
     );
 }
 
@@ -15,9 +15,9 @@ const Header = () => {
         <div className="header">
             <Title />
                 <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/about">About us</Link></li>
-                    <li><Link to="/contact">Contact us</Link></li>
+                    <li><Link className="header-link" to="/">Home</Link></li>
+                    <li><Link className="header-link" to="/about">About us</Link></li>
+                    <li><Link className="header-link" to="/contact">Contact us</Link></li>
                     <li>Cart</li>
                 </ul>
 

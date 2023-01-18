@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { Restaurants } from "../constants";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 function filterData(searchText, allRestaurants){
     return  allRestaurants.filter(
@@ -55,7 +56,11 @@ const Body = () => {
                     (fliteredRestaurant.length === 0) 
                     ?<h2>No result found!!!</h2>
                     :fliteredRestaurant.map((r,index)=>{
-                      return  <RestaurantCard {...r.data} key={r.data.id}/>
+                      return(  
+                      <Link className="link-body" to={"/restaurant/"+r.data.id} key={r.data.id}>
+                      <RestaurantCard {...r.data} />
+                      </Link>
+                      )
                     })
                 }
 
