@@ -91,3 +91,11 @@ border: rgb(185, 184, 184) solid 1px;
     background-color:rgb(131, 128, 128);
 
 }
+
+.restaurant-menu{
+    display: flex;
+}
+
+.restaurant-menu > div{
+    margin: 20px;
+}
