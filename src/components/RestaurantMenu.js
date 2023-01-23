@@ -1,28 +1,15 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { IMG_CDN } from "../constants";
+import useRestaurant from "../utils/useRestaurant";
 import Shimmer from "./Shimmer";
 
 
 const RestaurantMenu = () => {
     const {id} = useParams();
-
-    const [restaurant, setRestaurant] = useState(null);
-    
-    useEffect(()=>{
-        getRestaurant();
-    },[]);
-
-    async function getRestaurant(){
-        const info = await fetch("https://www.swiggy.com/dapi/menu/v4/full?lat=12.9351929&lng=77.62448069999999&menuId="+ id);
-        const json = await info.json();
-        console.log(json?.data);
-        setRestaurant(json?.data);
-
-    }
-
-
     //destructure on fly const {id} = useParams();
+
+    const restaurant = useRestaurant(id);
 
     return  (!restaurant)? <Shimmer /> :(
         <div className="restaurant-menu">
@@ -33,7 +20,6 @@ const RestaurantMenu = () => {
                 <h3>{restaurant?.area}, {restaurant?.city}</h3>
                 <h3>{restaurant?.avgRating} ratings</h3>
                 <h3>{restaurant?.costForTwoMsg}</h3>
-                
             </div>
             <div>
                 <h1>Menu</h1>
