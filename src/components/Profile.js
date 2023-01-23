@@ -1,11 +1,41 @@
+import React from "react";
 
 
-const Profile = () => {
-    return(
-        <>
-        <h2>profile page</h2>
-        </>
-    );
+class Profile extends React.Component{
+    constructor(props){
+        super(props);
+        this.state={
+            count : 0,
+        }
+
+        console.log("child constructor " + this.props.name);
+    }
+
+    componentDidMount(){
+        this.timer = setInterval(
+            ()=>console.log("namaste js"), 1000
+        );
+
+        console.log("child componentDidMount "+ this.props.name);
+    }
+
+    componentDidUpdate(){
+        console.log("child - componentDidUpdate - "+this.props.name);
+    }
+
+    componentWillUnmount(){
+        clearInterval(this.timer);
+        console.log("child componentWillUnmount");
+    }
+
+    render(){
+        console.log("child render - "+this.props.name);
+        return(
+            <>
+            <h2>profile page</h2>
+            </>
+        );
+    }
 }
 
 export default Profile;
