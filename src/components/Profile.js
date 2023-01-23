@@ -16,11 +16,17 @@ class Profile extends React.Component{
             ()=>console.log("namaste js"), 1000
         );
 
+        this.setState({
+            count : 1,
+        });
+
         console.log("child componentDidMount "+ this.props.name);
     }
 
     componentDidUpdate(){
         console.log("child - componentDidUpdate - "+this.props.name);
+        
+        console.log("count - "+ this.state.count);
     }
 
     componentWillUnmount(){
