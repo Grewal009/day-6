@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/helper"; 
+import useOnline from "../utils/useOnline";
 
 
 
@@ -26,7 +27,12 @@ const Body = () => {
         setFliteredRestaurant(newList?.data?.cards[2]?.data?.data?.cards);
     }
 
-    return allRestaurants.length === 0 
+    const isOnline = useOnline();
+    if(!isOnline){
+        return <h1>offline, please check your internet connection.</h1>
+    }
+
+    return allRestaurants?.length === 0 
             ? <Shimmer />
             : (
         <>
@@ -49,9 +55,9 @@ const Body = () => {
                     // <RestaurantCard restaurant={Restaurants[2]}/>
                     // <RestaurantCard restaurant={Restaurants[3]}/>
                     // <RestaurantCard restaurant={Restaurants[4]}/>
-                    (fliteredRestaurant.length === 0) 
+                    (fliteredRestaurant?.length === 0) 
                     ?<h2>No result found!!!</h2>
-                    :fliteredRestaurant.map((r,index)=>{
+                    :fliteredRestaurant?.map((r,index)=>{
                       return(  
                       <Link className="link-body" to={"/restaurant/"+r.data.id} key={r.data.id}>
                       <RestaurantCard {...r.data} />
