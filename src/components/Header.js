@@ -18,6 +18,7 @@ const Header = () => {
                     <li><Link className="header-link" to="/">Home</Link></li>
                     <li><Link className="header-link" to="/about">About us</Link></li>
                     <li><Link className="header-link" to="/contact">Contact us</Link></li>
+                    <li><Link className="header-link" to="/instamart">Instamart</Link></li>
                     <li>Cart</li>
                 </ul>
 
