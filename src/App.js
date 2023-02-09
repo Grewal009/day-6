@@ -24,6 +24,7 @@ const AppLayout = () => {
         }
     );
 
+    
     return (
             <UserContext.Provider value={{user:user}}>
                 <Header />
