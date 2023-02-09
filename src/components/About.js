@@ -3,6 +3,8 @@ import { Outlet } from "react-router-dom";
 import Profile from "./Profile";
 import Profile1 from "./Profile";
 
+import UserContext from "../utils/UserContext";
+
 class About extends React.Component {
 
     constructor(props){
@@ -23,12 +25,16 @@ class About extends React.Component {
         console.log("parent - render");
         return(
             <div>
+                <UserContext.Consumer>
+                    {({user}) => <h2>{user.name} - {user.email}</h2>}
+                </UserContext.Consumer>
                 <h1>Learning React!!!</h1>
                 <h2>Finding the path...</h2>
                 {//<Outlet />   //child component is shown in Outlet component 
                 }
                 <Profile name={"first"}/>
                 {/* <Profile1 name={"second"}/> */}
+                
             </div>
         );
     }
